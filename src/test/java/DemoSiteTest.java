@@ -1,9 +1,9 @@
 import Framework.DemoSite;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
+
 
 import java.time.Duration;
 
@@ -23,19 +23,20 @@ public class DemoSiteTest extends MainTest {
             throw new RuntimeException(e);
         }
         demoSite = new DemoSite(driver);
-//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        demoSite.scroll();
+
     }
 
 
     @Test
-    public void clickElements()  {
+    public void clickElements() {
         demoSite.clickElements();
         String elementsUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://demoqa.com/elements", elementsUrl);
     }
 
     @Test
-    public void clickForms()  {
+    public void clickForms() {
         demoSite.clickForms();
         String formsUrl = driver.getCurrentUrl();
         Assert.assertEquals("https://demoqa.com/forms", formsUrl);
@@ -44,28 +45,30 @@ public class DemoSiteTest extends MainTest {
     @Test
     public void clickAlertsFrameWindows() {
         demoSite.clickAlertsFrameWindows();
+        String alertsUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://demoqa.com/alertsWindows", alertsUrl);
     }
 
     @Test
     public void clickWidgets() {
         demoSite.clickWidgets();
+        String widgetsUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://demoqa.com/widgets", widgetsUrl);
     }
 
     @Test
     public void clickInteractions() {
         demoSite.clickInteractions();
+        String interactionUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://demoqa.com/interaction", interactionUrl);
     }
 
     @Test
     public void clickBookStoreApplication() {
         demoSite.clickBookStoreApplication();
+        String booksUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://demoqa.com/books", booksUrl);
     }
-
-//        @AfterMethod
-//        public void screenShot() throws IOException {
-//            File screenshotElements = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//            FileUtils.copyFile(screenshotElements, new File("C:\\project\\Screenshots\\screenShotElements.png"));
-//        }
 
 
 }

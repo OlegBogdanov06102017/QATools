@@ -1,11 +1,7 @@
 package Framework;
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-
-
 import java.time.Duration;
 
 public class MainPage extends AbstractPage {
@@ -14,10 +10,7 @@ public class MainPage extends AbstractPage {
         super(driver);
     }
 
-    //    private String home = ""; //локатор Home
-//    public WebElement getHomeButton(){
-//        return driver.findElement(By.xpath(home));
-//    }
+
     private boolean isCookieAccept;
     @FindBy(xpath = "//ul[@class='navbar__links d-none d-lg-flex']/li/a[text()='Home']")
     private WebElement home;

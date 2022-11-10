@@ -3,11 +3,9 @@ package Framework;
 import Framework.Elements.Elements;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
+
+
 
 public class DemoSite extends AbstractPage {
     public DemoSite (WebDriver driver) {
@@ -52,6 +50,11 @@ public class DemoSite extends AbstractPage {
     public BookStoreApplication clickBookStoreApplication() {
         bookStoreApplication.click();
         return new BookStoreApplication(driver);
+    }
+    public DemoSite scroll() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,1000)");
+        return new DemoSite(driver);
     }
 
 

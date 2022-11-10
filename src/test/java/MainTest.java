@@ -12,9 +12,9 @@ public class MainTest {
         driver = Main.getDriver();
     }
 
-//    @AfterTest
-//    public static void quit() {
-//        driver.quit();
-//    }
+    @AfterTest
+    public static void quit() {
+        driver.quit();
+    }
 
 }

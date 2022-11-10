@@ -1,9 +1,11 @@
 package Framework.Elements;
-
-import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+
 
 public class TextBox extends Elements {
 
@@ -37,6 +39,8 @@ public class TextBox extends Elements {
     private WebElement checkCurrentAddress;
     @FindBy(xpath = "//p[@id='permanentAddress']")
     private WebElement checkPermanentAddress;
+    @FindBy(xpath = "//input[@class='mr-sm-2 field-error form-control']")
+    private WebElement checkRedField;
 
     public String getTextNameField() {
         return getTextName.getText();
@@ -79,26 +83,49 @@ public class TextBox extends Elements {
         return new TextBox(driver);
     }
 
-    public TextBox checkTextName() {
-        checkName.getText();
-        return new TextBox(driver);
+    public String checkTextName() {
+        return checkName.getText();
     }
 
-    public TextBox checkTextEmail() {
-        checkEmail.getText();
-        return new TextBox(driver);
+    public String checkTextEmail() {
+        return checkEmail.getText();
     }
 
-    public TextBox checkTextCurrentAddress() {
-        checkCurrentAddress.getText();
-        return new TextBox(driver);
+    public String checkTextCurrentAddress() {
+        return checkCurrentAddress.getText();
     }
 
-    public TextBox checkTextPermanentAddress() {
-        checkPermanentAddress.getText();
-        return new TextBox(driver);
+    public String checkTextPermanentAddress() {
+        return checkPermanentAddress.getText();
     }
 
+    public TextBox checkRedField() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkRedField).
+                build().
+                perform();
+        return new TextBox(driver);
+    }
+    public String getAttributeName() {
+        return sendName.getAttribute("placeholder");
+    }
+    public String getAttributeEmail() {
+        return sendEmail.getAttribute("class");
+    }
+    public String getAttributeCurrentAddress() {
+        return sendCurrentAddress.getAttribute("placeholder");
+    }
+    public String getAttributePermanentAddress() {
+        return sendPermanentAddress.getAttribute("placeholder");
+    }
+
+
+
+    public TextBox scroll() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,500)");
+        return new TextBox(driver);
+    }
 
 }
 
