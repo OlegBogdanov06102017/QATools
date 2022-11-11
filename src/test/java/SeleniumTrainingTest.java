@@ -1,10 +1,11 @@
-import Framework.SeleniumTraining;
-import org.openqa.selenium.support.PageFactory;
+import framework.SeleniumTraining;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.DefaultListener;
 
-
+@Listeners(DefaultListener.class)
 public class SeleniumTrainingTest extends MainTest {
     protected SeleniumTraining seleniumTraining;
 
@@ -12,7 +13,6 @@ public class SeleniumTrainingTest extends MainTest {
     public void setUp() {
         driver.get("https://www.toolsqa.com/selenium-training?q=headers");
         seleniumTraining = new SeleniumTraining(driver);
-        seleniumTraining = PageFactory.initElements(driver,SeleniumTraining.class);
     }
     @Test
     public void whatIsIncludedText() {

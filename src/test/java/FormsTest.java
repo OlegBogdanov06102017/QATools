@@ -1,4 +1,4 @@
-import Framework.Forms;
+import framework.Forms;
 
 public class FormsTest extends MainTest{
     protected Forms forms;

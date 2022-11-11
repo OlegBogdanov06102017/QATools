@@ -1,9 +1,11 @@
-import Framework.MainPage;
-import org.openqa.selenium.support.PageFactory;
+import framework.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.DefaultListener;
 
+@Listeners(DefaultListener.class)
 public class MainPageTest extends MainTest {
     protected MainPage mainPage;
 
@@ -12,11 +14,11 @@ public class MainPageTest extends MainTest {
     public void setUp() {
         driver.get("https://www.toolsqa.com/");
         mainPage = new MainPage(driver);
-        mainPage = PageFactory.initElements(driver,MainPage.class);
         mainPage.cookieClick();
 //        mainPage.popupClick();
 
     }
+
     @Test
     public void clickHome() {
         String header = driver.getCurrentUrl();

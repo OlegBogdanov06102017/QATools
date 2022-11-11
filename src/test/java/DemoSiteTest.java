@@ -1,13 +1,14 @@
-import Framework.DemoSite;
+import framework.DemoSite;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.DefaultListener;
 
 
 import java.time.Duration;
 
-
+@Listeners(DefaultListener.class)
 public class DemoSiteTest extends MainTest {
     protected DemoSite demoSite;
 

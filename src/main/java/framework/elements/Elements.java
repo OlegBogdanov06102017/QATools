@@ -1,5 +1,5 @@
-package Framework.Elements;
-import Framework.DemoSite;
+package framework.elements;
+import framework.DemoSite;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

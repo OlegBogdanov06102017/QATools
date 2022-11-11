@@ -1,6 +1,6 @@
-package Framework;
+package framework;
 
-import Framework.Elements.Elements;
+import framework.elements.Elements;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 

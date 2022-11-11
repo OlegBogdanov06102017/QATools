@@ -1,9 +1,11 @@
-import Framework.Elements.Elements;
-import org.openqa.selenium.support.PageFactory;
+import framework.elements.Elements;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import utils.DefaultListener;
 
+@Listeners(DefaultListener.class)
 public class ElementsTest extends MainTest {
     protected Elements elements;
 
@@ -11,7 +13,6 @@ public class ElementsTest extends MainTest {
     public void setUp() {
         driver.get("https://demoqa.com/elements");
         elements = new Elements(driver);
-        elements = PageFactory.initElements(driver, Elements.class);
     }
 
     @Test

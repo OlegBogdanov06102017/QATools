@@ -1,6 +1,6 @@
 package utils;
 
-import Framework.Main;
+import framework.Main;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

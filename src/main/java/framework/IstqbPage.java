@@ -1,6 +1,5 @@
-package Framework;
+package framework;
 
-import Framework.AbstractPage;
 import org.openqa.selenium.WebDriver;
 
 public class IstqbPage extends AbstractPage {
